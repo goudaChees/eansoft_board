@@ -175,6 +175,7 @@ public class BoardDAO {
 	
 	public List<BoardDTO> viewContents(int seq){
 		return mybatis.selectList("Board.viewContents", seq);
+	
 	}
 	
 	public int viewCount(int seq) {

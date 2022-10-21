@@ -14,8 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 import ean.spring.dao.BoardDAO;
 import ean.spring.dao.FileDAO;
 import ean.spring.dto.BoardDTO;
+import ean.spring.dto.ReplyDTO;
 import ean.spring.service.BoardService;
 import ean.spring.service.FileService;
+import ean.spring.service.ReplyService;
 
 @Controller
 @RequestMapping("/board/")
@@ -35,6 +37,9 @@ public class BoardController {
 	
 	@Autowired
 	private FileService fServ;
+	
+	@Autowired
+	private ReplyService rServ;
 	
 	
 	@RequestMapping("list")
@@ -77,8 +82,7 @@ public class BoardController {
 //			List<BoardDTO> list = bServ.selectAll();
 //			model.addAttribute("list",list);
 //		}
-		
-		
+				
 		return "/board/list";
 	}
 	
@@ -98,14 +102,15 @@ public class BoardController {
 	
 	@RequestMapping("viewContents")
 	public String viewContents(Model model, int seq) {
-		List<BoardDTO> dto = bServ.viewContents(seq);
+		List<BoardDTO> bdto = bServ.viewContents(seq);
 		bServ.viewCount(seq);
 		String loginID = (String) session.getAttribute("loginID");
+		List<ReplyDTO> rdto = rServ.selectByParent(seq);
 		
 		
-		model.addAttribute("dto", dto);
+		model.addAttribute("bdto", bdto);
+		model.addAttribute("rdto", rdto);
 		model.addAttribute("idCheck" , loginID);
-		
 		
 		return "/board/viewContents";
 	}
@@ -120,6 +125,8 @@ public class BoardController {
 	public String delete (int seq) {
 //		int seq2 = Integer.parseInt(seq);
 		bServ.delete(seq);
+		fServ.delete(seq);
+		rServ.delete(seq);
 		return "redirect:list?cpage=1";
 	}
 	

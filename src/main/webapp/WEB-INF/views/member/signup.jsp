@@ -218,7 +218,7 @@
 					</div>
 					<div class="row">
 						<div class="col-12">
-							<input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="50">
+							<input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="30">
 						</div>
 					</div>
 					<div class="row">

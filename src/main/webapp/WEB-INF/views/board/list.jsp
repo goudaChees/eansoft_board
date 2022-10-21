@@ -214,7 +214,7 @@
 													<c:when test="${ii.type eq 'N' }"><div class="col-1 d-none d-lg-block body2" style='border-right : 0.125rem solid #DFE3E8'>뉴스</div></c:when>
 												</c:choose>
 											<%-- <div class='col-1 d-none d-lg-block body2' style='border-right : 0.125rem solid #DFE3E8'>${ii.type}</div> --%>
-											<div class='col-4 body2' style='border-right : 0.125rem solid #DFE3E8'><a href="/board/viewContents?seq=${ii.seq}">${ii.title}</a></div>
+											<div class='col-4 body2' style='border-right : 0.125rem solid #DFE3E8'><a href="/board/viewContents?seq=${ii.seq}">${ii.title} [${ii.reply_count}]</a></div>
 											<div class='col-1 d-none d-xl-block body2' style='border-right : 0.125rem solid #DFE3E8'>${ii.file_count}</div>
 											<div class='col-2 body2' style='border-right : 0.125rem solid #DFE3E8'>${ii.writer }</div>
 						            		<div class='col-2 d-none d-xl-block body2' style='border-right : 0.125rem solid #DFE3E8'>${ii.write_date }</div>

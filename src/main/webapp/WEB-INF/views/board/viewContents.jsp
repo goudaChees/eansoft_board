@@ -159,7 +159,7 @@
                 		<div class="col-12" id="roundbox">  
  							<form action='/board/update' method='post'>
             				<div class="row pt-3 m-3 mb-4">
-            					<c:forEach var='i' items="${dto }">
+            					<c:forEach var='i' items="${bdto }">
             					
             					<div class="col-2 h3_3 m-auto">Title</div>
 			            		<div class="col-10 h3_3">
@@ -215,17 +215,14 @@
 			                <div class="row m-3 mb-4" >		
 	                   			<div class='col-12 h3_3'>Comments</div>
 	                   			<hr>
-	                   			
-	                   			
-	                   			
-	                   			<input type="hidden" name="parent_seq" value=''>
+	                   			<input type="hidden" name="parent_seq" value='${bdto[0].seq }'>
 	                   			<div class="col-2 body1 mt-2" style="text-align:center;">${loginID }</div>
-	                   			<input type="hidden" name="writer" value="${loginID }">
+	                   			<input type="hidden" id="replyWriter" name="writer" value="${loginID }">
 	                   			<div class="col-8">
-	                   				<input type="text" name='contents' style="width:100%;">
+	                   				<input type="text" id="replyContents" name='contents' style="width:100%;">
 	                   			</div>
 	                   			<div class="col-2">
-	                   				<button class="btn1_0">enter</button>
+	                   				<input type="submit" class="btn1_0" id="insertReply" value="insert" disabled>
 	                   			</div>
            						
            						
@@ -233,11 +230,18 @@
 	                   		</div>
 	                   		</form>
 	                   		<div class="row m-3 mb-4">
-	                   			<div class="col-12">댓글리스트 출력</div>
-	                   			<div class="col-12">리스트 1</div>
-	                   			<div class="col-12">리스트 2</div>
-	                   			<div class="col-12">리스트 3</div>
-	                   			<div class="col-12">리스트 4</div>
+	                   			<c:forEach var='ii' items="${rdto }">
+	                   			<div class="col-2 body1" style="text-align:center;">${ii.writer}</div>
+	                   			<div class="col-6 body1">${ii.contents }</div>
+	                   			<div class="col-2 body2">${ii.write_date }</div>
+	                   			<div class="col-2">
+	                   			<c:if test="${loginID == ii.writer }">
+	                   				<button>수정</button>
+	                   				<button>삭제</button>
+	                   			</c:if>
+	                   			</div>
+	                   			<!-- <hr> -->
+	                   			</c:forEach>
 	                   		</div>
                         </div>
 	                </div>      	
@@ -298,7 +302,14 @@
 		}else {
 			
 		}
+	})
+	
+	$("#replyContents").on("keyup", ()=>{
+		let replywriter = $("#replyWriter").val();
 		
+		if (replywriter != ""){
+			$("#insertReply").removeAttr("disabled");
+		}
 	})
 </script>
       

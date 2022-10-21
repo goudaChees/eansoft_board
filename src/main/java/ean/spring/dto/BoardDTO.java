@@ -12,9 +12,24 @@ public class BoardDTO {
 	private Timestamp write_date;
 	private int file_count;
 	private int view_count;
+	private int reply_count;
 	
 	public BoardDTO() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public BoardDTO(int seq, String type, String title, String contents, String writer, Timestamp write_date,
+			int file_count, int view_count, int reply_count) {
+		super();
+		this.seq = seq;
+		this.type = type;
+		this.title = title;
+		this.contents = contents;
+		this.writer = writer;
+		this.write_date = write_date;
+		this.file_count = file_count;
+		this.view_count = view_count;
+		this.reply_count = reply_count;
 	}
 
 	public BoardDTO(int seq, String type, String title, String contents, String writer, Timestamp write_date,
@@ -26,19 +41,6 @@ public class BoardDTO {
 		this.contents = contents;
 		this.writer = writer;
 		this.write_date = write_date;
-		this.view_count = view_count;
-	}
-
-	public BoardDTO(int seq, String type, String title, String contents, String writer, Timestamp write_date,
-			int file_count, int view_count) {
-		super();
-		this.seq = seq;
-		this.type = type;
-		this.title = title;
-		this.contents = contents;
-		this.writer = writer;
-		this.write_date = write_date;
-		this.file_count = file_count;
 		this.view_count = view_count;
 	}
 
@@ -105,10 +107,14 @@ public class BoardDTO {
 	public void setView_count(int view_count) {
 		this.view_count = view_count;
 	}
-	
-	
-	
-	
+
+	public int getReply_count() {
+		return reply_count;
+	}
+
+	public void setReply_count(int reply_count) {
+		this.reply_count = reply_count;
+	}
 	
 	
 }

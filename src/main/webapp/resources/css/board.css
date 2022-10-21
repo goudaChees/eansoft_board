@@ -221,6 +221,15 @@ a {
 	height: 400px;
 }
 
+#insertReply:disabled {
+	cursor:not-allowed;
+}
+
+#insertReply:hover {
+	color : white;
+	background-color : black;
+}
+
 /* Font */
 .h1 {
     padding: 0px;

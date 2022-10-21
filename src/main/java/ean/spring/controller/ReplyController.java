@@ -21,6 +21,7 @@ public class ReplyController {
 	@RequestMapping("insert")
 	public String insert(ReplyDTO rdto) {
 		rServ.insert(rdto);
+		System.out.println("Parent_Seq"+rdto.getParent_seq());
 		return "redirect:/board/viewContents?seq="+rdto.getParent_seq();
 	}
 

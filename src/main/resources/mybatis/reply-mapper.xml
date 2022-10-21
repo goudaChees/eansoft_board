@@ -11,4 +11,12 @@
 			select brd_seq.currval from dual
 		</selectKey> -->
   	</insert>
+  	
+  	<delete id="delete">
+  		delete from reply where seq = #{value}
+  	</delete>
+  	
+  	<select id="selectByParent" resultType="ean.spring.dto.ReplyDTO">
+  		select * from reply where parent_seq = #{value} order by write_date
+  	</select>
   </mapper>

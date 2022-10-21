@@ -20,12 +20,14 @@
   		delete from board where seq = #{value}
   	</delete>
   	
-  	<select id="selectAll" resultType="ean.spring.dto.BoardDTO">
+  <!-- 	<select id="selectAll" resultType="ean.spring.dto.BoardDTO">
   		select * from board order by seq desc
-  	</select>
+  	</select> -->
   	
   	<select id="selectByPage" resultType="ean.spring.dto.BoardDTO">
-  		select * from (select row_number() over(order by seq desc) line, board.* from board) 
+		select * from (select row_number() over(order by seq desc) line, b.*, nvl(f.file_count, 0) as file_count, nvl(r.reply_count, 0) as reply_count from board b 
+		full join (select parent_seq, count(*) file_count from files group by parent_seq) f on (b.seq = f.parent_seq)
+		full join (select parent_seq, count(*) reply_count from reply group by parent_seq) r on (b.seq = r.parent_seq)) 
   		where line between #{start} and #{end}
   	</select>
   	
@@ -34,7 +36,9 @@
   	</select>
   	
   	<select id="selectBySearchPage" resultType="ean.spring.dto.BoardDTO">
-  		select * from (select row_number() over(order by seq desc) line, board.* from board
+  		select * from (select row_number() over(order by seq desc) line, b.*, nvl(f.file_count, 0) as file_count, nvl(r.reply_count, 0) as reply_count from board b 
+		full join (select parent_seq, count(*) file_count from files group by parent_seq) f on (b.seq = f.parent_seq)
+		full join (select parent_seq, count(*) reply_count from reply group by parent_seq) r on (b.seq = r.parent_seq))
   		where ${category} like '%'||#{keyword}||'%') where line between #{start} and #{end}
   	</select>
   	

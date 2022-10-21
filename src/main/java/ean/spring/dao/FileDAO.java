@@ -15,4 +15,8 @@ public class FileDAO {
 	public int insert(FileDTO fdto) {
 		return mybatis.insert("File.insert", fdto);
 	}
+	
+	public int delete(int parent_seq) {
+		return mybatis.insert("File.delete", parent_seq);
+	}
 }

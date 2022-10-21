@@ -9,5 +9,8 @@
   		insert into files values(files_seq.nextval, #{ori_Name}, #{sys_Name}, #{parent_Seq})
   	</insert>
   	
+  	<delete id="delete">
+  		delete from files where seq = #{value}
+  	</delete>
   	
   </mapper>
