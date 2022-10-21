@@ -242,10 +242,10 @@
 	                   			<div class="col-2 body1" style="text-align:center;">${ii.writer}</div>
 	                   			<div class="col-6 body1">${ii.contents }</div>
 	                   			<div class="col-2 body2">${ii.write_date }</div>
-	                   			<div class="col-2">
+	                   			<div class="col-2 replyBtns">
 	                   			<c:if test="${loginID == ii.writer }">
-	                   				<button>수정</button>
-	                   				<button>삭제</button>
+	                   				<button class="btn0_1 color_yellow2" type="button" id='replyModify'>수정</button>
+									<button class="btn0_1 color_red2" type="button" id='replyDelete' >삭제</button>
 	                   			</c:if>
 	                   			</div>
 	                   			<!-- <hr> -->
