@@ -207,10 +207,18 @@
 								</c:forEach>
 							</div>
 							</form>
+							
                        		<div class="row m-3 mb-4">
-                       			<div class="col-12 h3_3">File</div><div class="row m-auto mt-3" style="border-bottom: solid 0.1rem gray; text-align:center;"></div>
+                       			<div class="col-3 h3_3">File</div>
+                       			<div class="col-9"></div>
+                       			<div class="col-2"></div>
+                       			<c:forEach var="f" items="${fdto}">
+                       			
+                       			<span class="col-2 body2"><a href="/file/download?sys_Name=${f.sys_Name}&ori_Name=${f.ori_Name}">${f.ori_Name}</a></span>
+                       			</c:forEach>
+                       			<div class="row m-auto mt-3" style="border-bottom: solid 0.1rem gray; text-align:center;"></div>
                        		</div>
-									                            	
+						                            	
                             <form action="/reply/insert" method="post"> 	
 			                <div class="row m-3 mb-4" >		
 	                   			<div class='col-12 h3_3'>Comments</div>

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ean.spring.dao.BoardDAO;
 import ean.spring.dao.FileDAO;
 import ean.spring.dto.BoardDTO;
+import ean.spring.dto.FileDTO;
 import ean.spring.dto.ReplyDTO;
 import ean.spring.service.BoardService;
 import ean.spring.service.FileService;
@@ -106,8 +107,9 @@ public class BoardController {
 		bServ.viewCount(seq);
 		String loginID = (String) session.getAttribute("loginID");
 		List<ReplyDTO> rdto = rServ.selectByParent(seq);
+		List<FileDTO> fdto = fServ.selectByParent(seq);
 		
-		
+		model.addAttribute("fdto", fdto);
 		model.addAttribute("bdto", bdto);
 		model.addAttribute("rdto", rdto);
 		model.addAttribute("idCheck" , loginID);

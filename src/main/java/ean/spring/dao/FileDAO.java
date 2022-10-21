@@ -1,5 +1,7 @@
 package ean.spring.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,5 +20,9 @@ public class FileDAO {
 	
 	public int delete(int parent_seq) {
 		return mybatis.insert("File.delete", parent_seq);
+	}
+	
+	public List<FileDTO> selectByParent (int parent_seq) {
+		return mybatis.selectList("File.selectByParent", parent_seq);
 	}
 }

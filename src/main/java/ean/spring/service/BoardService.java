@@ -26,7 +26,7 @@ public class BoardService {
 	@Transactional
 	public void insert(BoardDTO bdto, String realPath, MultipartFile[] file) {
 		bdao.insert(bdto);
-		int parent_num = bdto.getSeq();
+		int parent_seq = bdto.getSeq();
 		System.out.println(realPath);
 		System.out.println(file);
 		if (file != null) {
@@ -42,7 +42,7 @@ public class BoardService {
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
-				fdao.insert(new FileDTO(0, ori_Name, sys_Name, parent_num));
+				fdao.insert(new FileDTO(0, ori_Name, sys_Name, parent_seq));
 			}
 		}
 		

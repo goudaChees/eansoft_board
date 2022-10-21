@@ -13,4 +13,8 @@
   		delete from files where seq = #{value}
   	</delete>
   	
+  	<select id="selectByParent" resultType="ean.spring.dto.FileDTO">
+  		select * from files where parent_seq = #{value}
+  	</select>
+  	
   </mapper>
