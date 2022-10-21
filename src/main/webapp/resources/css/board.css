@@ -1,0 +1,1068 @@
+@charset "UTF-8";
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+@media ( min-width : 375px) {
+	.container {
+		max-width: 1280px;
+	}html{
+		font-size: 12px;
+	}
+}
+
+@media ( min-width : 1280px) {
+	.container {
+		max-width: 1280px;
+	}
+	
+	
+	html {
+		font-size: 14.5px;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container-fluid {
+	padding: 0px;
+}
+
+.navbar-brand {
+	margin: 0px;
+	padding: 0px;
+	height: 1.875rem;
+}
+
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
+
+.nav-item {
+ margin: auto;
+
+		padding-left: 33px;
+}
+
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
+
+.row1>div {
+	padding-left: 0rem;
+	padding-right: 0rem;
+}
+
+.nav-link {
+	padding: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	width: 4.625rem;
+	height: 1.5rem;
+	/* Button/Button1 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	/* Gray/500 */
+	color: #919EAB;
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+
+#main_blank  {
+	/*margin-top: 5rem !important;*/
+	max-height:40rem !important;
+	min-height:37.5rem !important;
+	margin: 0px;
+	min-height: 600px;
+	max-height: 1920px;
+	height: 0;
+	padding-bottom: calc(800/ 1920 * 100%);
+	/* background-image: url("/images/Mainphoto.png"); */
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+	border : 1px solid gray;
+}
+
+#boardMain{
+    margin: auto;
+}
+
+#titleInput, #contentsInput {
+	padding:  1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    width: 12.5rem;
+    
+    height: 100%;
+    
+    /* Gray/900 
+    
+    border: 2px solid #C4CDD5;*/
+    border-radius: 0.313rem;
+    /* Button/Button */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 0.5rem;
+    
+    margin-bottom: 0.625rem;	
+}
+
+.inputs {
+	
+    
+
+    
+    
+    height: 100%;
+    
+    /* Gray/900 
+    
+    border: 2px solid #C4CDD5;*/
+    border-radius: 0.313rem;
+    /* Button/Button */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 0.5rem;
+    
+   
+}
+
+
+input:focus {outline:none;}
+		
+input[type=text], input[type=password] {
+	padding:  1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    /*width: 12.5rem;*/
+    width: 50%;
+    height: 3.125rem;
+    
+    /* Gray/900 */
+    
+    border: 2px solid #C4CDD5;
+    border-radius: 0.313rem;
+    /* Button/Button */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 0.5rem;
+    
+    margin-bottom: 0.625rem;
+}
+
+
+
+textarea {
+	padding:  1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    /*width: 12.5rem;*/
+    width: 50%;
+    height: 15rem;
+    
+    /* Gray/900 */
+    
+    border: 2px solid #C4CDD5;
+    border-radius: 0.313rem;
+    /* Button/Button */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 0.5rem;
+    text-align : left;
+    
+    margin-bottom: 0.625rem;
+}
+
+a {
+	text-decoration : none;
+}
+
+#contentsBox{
+	height: 400px;
+}
+
+/* Font */
+.h1 {
+    padding: 0px;
+    color: #FFFFFF;
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+
+    line-height: 4.813rem;
+}
+     
+.h4 {
+    margin-bottom: 0px;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    /* identical to box height, or 188% */
+    color: #000000;
+}
+
+.h2 {
+    /* width: 10.375rem;
+    height: 2.688rem; */
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 2.688rem;
+    text-align: center;
+    /* Gray/900 */
+    color: #161C24;
+}
+
+.h2_0 {
+	font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 1.988rem;
+    text-align: center;
+    /* Gray/900 */
+    color: #161C24;
+}
+
+.h2_1 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 2.688rem;
+    /* Gray/900 */
+     color: white;
+}
+      
+.h3_1 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    /* Gray/900 */
+    color: #161C24;
+}
+     
+.h3_2 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+    text-align: center;
+    /* Gray/900 */
+    color: #161C24;
+}
+     
+.h3_3 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+   
+    /* Gray/900 */
+    color: #161C24;
+}
+
+.h3_4 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.0rem;
+    line-height: 1.25rem;
+    /* identical to box height */
+    /* Gray/900 */
+    color: #161C24;
+}
+
+
+.h3 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+    /* Gray/900 */
+    color: #161C24;
+}
+
+.body1 {
+     /* Body/Body1 */
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    /* identical to box height, or 150% */
+    color: #161C24;
+}
+
+.body2 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    /* identical to box height, or 175% */
+    margin-bottom: 0px;
+    color: #161C24;
+}
+     
+.body2_1 {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    /* identical to box height, or 175% */
+    margin-bottom: 0px;
+    color: #000000;
+}
+     
+.caption {
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    color: #919EAB;
+}
+     
+/* Font Fin*/
+     
+/* Select */
+
+.select0 {
+	/*padding: 1.125rem 1.5rem; */
+	gap: 0.625rem;
+
+	/* width: 18.813rem; */
+	width: 11.625rem;
+	height: 2.0rem;
+
+	color: #161C24;
+	border-radius: 1.25rem;
+	border : 0.080rem solid #F4F6F8;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.1rem;
+	line-height: 0.5rem;
+	text-align: center;
+	background: #F4F6F8;
+	cursor: pointer;
+}
+
+.select0:hover {
+  	cursor: pointer;
+}
+
+.select1 {
+	/*padding:  1.125rem 1.5rem; */
+    gap: 0.625rem;
+
+    /*width: 12.5rem;*/
+    width: 50%;
+    height: 3.125rem;
+    
+    /* Gray/900 */
+    
+    border: 2px solid #C4CDD5;
+    border-radius: 0.313rem;
+    /* Button/Button */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 0.5rem;
+     
+    margin-bottom: 0.625rem;
+}
+
+.select2 {
+	/*padding:  1.125rem 1.5rem; */
+    gap: 0.625rem;
+
+    width: 10rem;
+    
+    height: 3.125rem;
+    
+    /* Gray/900 */
+    
+    border: 2px solid #C4CDD5;
+    border-radius: 0.313rem;
+    /* Button/Button */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 0.5rem;
+     
+    margin-bottom: 0.625rem;
+}
+      
+.marg_left0{
+	margin-left : 20.875rem;
+}
+.marg_left00{
+	margin-left : 26.125rem;
+}
+.marg_left1{
+	margin-left : 0.75rem;
+}
+.marg_left2{
+	margin-left : 13rem;
+}
+.marg_left3{
+	margin-left : 9rem;
+}        
+.marg_left4{
+	margin-left : 10rem;
+}
+.marg_left5{
+	margin-left : 5rem;
+}        
+.marg_right0{
+	margin-right : 17rem;
+}
+      
+    /* Button */
+    
+.btn0 {
+	/*padding: 1.125rem 1.5rem; */
+    gap: 0.625rem;
+
+    /* width: 18.813rem; */
+    width: 11.625rem;
+    height: 2.0rem;
+
+    color: #F4F6F8;
+    border-radius: 1.25rem;
+    border : 0.080rem solid #F4F6F8;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 0.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Gray/900 */
+
+    background: #161C24;
+    cursor: pointer;
+}
+
+.btn0:hover {
+	background: #F4F6F8;
+	color: #161C24;
+  	cursor: pointer;
+}
+
+.btn0_1 {
+	/*padding: 1.125rem 1.5rem; */
+    gap: 0.625rem;
+
+
+    /* width: 18.813rem; */
+    width: 5.625rem;
+    height: 2.0rem;
+
+
+    color: #161C24;
+    border-radius: 1.25rem;
+    border : 0.080rem solid #F4F6F8;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 0.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Gray/900 */
+
+    background: #F4F6F8;
+    cursor: pointer;
+}
+
+.btn0_1:hover {
+	background: #161C24;
+	color: #F4F6F8;
+  	cursor: pointer;
+}
+
+.btn0_2 {
+	/*padding: 1.125rem 1.5rem; */
+    gap: 0.625rem;
+
+
+    /* width: 18.813rem; */
+    width: 3.7rem;
+    height: 1.7rem;
+
+
+    color: #161C24;
+    border-radius: 1.25rem;
+    border : 0.080rem solid #F4F6F8;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 0.4rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Gray/900 */
+
+    background: #F4F6F8;
+    cursor: pointer;
+}
+
+.btn0_2:hover {
+	background: #161C24;
+	color: #F4F6F8;
+  	cursor: pointer;
+}
+
+
+.btn0_1_1 {
+	/*padding: 1.125rem 1.5rem; */
+    gap: 0.625rem;
+
+
+    /* width: 18.813rem; */
+    width: 8.625rem;
+    height: 2.0rem;
+
+
+    color: #161C24;
+    border-radius: 1.25rem;
+    border : 0.080rem solid #F4F6F8;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 0.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Gray/900 */
+
+    background: #F4F6F8;
+    cursor: pointer;
+}
+.btn0_1_1:hover {
+	background: #161C24;
+	color: #F4F6F8;
+  	cursor: pointer;
+}
+
+.btn1_0 {
+    box-sizing: border-box;
+    
+    padding: 0.625rem 0.9rem;
+    gap: 0.625rem;
+
+    margin-bottom: 1rem;
+	/*margin-right: 1.25rem; */
+
+    width: 10rem;
+    height: 3rem;
+
+    border: 0.063rem solid #F4F6F8;
+    border-radius: 1.25rem;
+    background-color: #F4F6F8;
+
+    /* Button/Button1 */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #161C24;
+
+    /* Inside auto layout */
+}
+     
+.btn1_0:hover {
+	cursor : pointer;
+}
+
+.btn1 {
+    box-sizing: border-box;
+    
+    padding: 1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    margin-bottom: 1rem;
+    margin-right: 1.25rem;
+
+    width: 12.5rem;
+    height: 3.75rem;
+
+    border: 0.063rem solid #F4F6F8;
+    border-radius: 1.25rem;
+    background-color: #F4F6F8;
+
+    /* Button/Button1 */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #161C24;
+
+    /* Inside auto layout */
+}
+     
+.btn1:hover {
+	background: #919EAB;
+	color: #F4F6F8;
+	cursor: pointer;
+}
+     
+.btn1_1 {
+    box-sizing: border-box;
+    
+    padding: 1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    margin-bottom: 1rem;
+    margin-right: 1.25rem;
+
+    width: 12.5rem;
+    height: 3.75rem;
+
+    border: 0.063rem solid #161C24;
+    border-radius: 1.25rem;
+    background-color: #161C24;
+
+    /* Button/Button1 */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #F4F6F8;
+
+    /* Inside auto layout */
+}
+
+.btn1_2 {
+    box-sizing: border-box;
+    
+    padding: 0.625rem 0.9rem;
+    gap: 0.625rem;
+
+    margin-bottom: 1rem;
+/*             margin-right: 1.25rem; */
+
+    width: 13%;
+    height: 3rem;
+
+    border: 0.063rem solid #F4F6F8;
+    border-radius: 1.25rem;
+    background-color: #F4F6F8;
+
+    /* Button/Button1 */
+
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #161C24;
+
+    /* Inside auto layout */
+}
+     
+.btn1_2:hover {
+	cursor : pointer;
+}
+
+.btn2 {
+    padding: 1.125rem 1.5rem;
+    gap: 0.625rem;
+
+
+    /* width: 18.813rem; */
+    width: 25rem;
+    height: 3.75rem;
+
+
+    color: #FFFFFF;
+    border-radius: 1.25rem;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    /* Gray/900 */
+
+    background: #161C24;
+    cursor: pointer;
+}
+.btn2:disabled {
+	color:#FFFFFF;
+    background: #C4CDD5;
+    cursor: default;
+}
+     
+.btn2_1 {
+    box-sizing: border-box;
+    
+    padding: 1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    margin-bottom: 1rem;
+    margin-right: 1.25rem;
+
+    width: 12.5rem;
+    height: 3.75rem;
+
+    border: 0.063rem solid #F4F6F8;
+    border-radius: 1.25rem;
+    /*background-color: #F4F6F8;
+
+     Button/Button1 */
+         
+	color: #FFFFFF;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    background: #161C24;
+    cursor: pointer;
+
+    /* Inside auto layout */
+}
+
+.btn2_1:disabled {
+	color:#FFFFFF;
+    background: #C4CDD5;
+    cursor: not-allowed;	
+}
+     
+     
+.btn3 {	
+	/* display: block; */
+	/* flex-direction: row;
+	justify-content: center;
+	align-items: center; */
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+				
+	width: 11.625rem;
+	height: 3.75rem;						
+				
+	background: #161C24;
+	border-radius: 1.25rem;	
+	
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;	
+	
+	text-align: center;
+	
+	color: #FFFFFF;			
+	
+}
+
+.btn5 {
+    padding: 1.125rem 1.5rem;
+    gap: 0.625rem;
+
+    width: 18.813rem;
+    height: 3.75rem;
+
+    /* Gray/900 */
+
+    background: #161C24;
+    border-radius: 1.25rem;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.22rem;
+    line-height: 1.5rem;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}        	
+     
+/* button Fin */
+     
+/* color picker */
+     
+.color_blue1{
+	background : #D0F2FF;      
+}                
+.color_blue2{
+	background : #74CAFF;       
+}        
+.color_blue3{
+	background : #1890FF;      
+}        
+.color_blue4{
+	background : #0C53B7;      
+}        
+.color_blue5{
+	background : #04297A;       
+}
+
+.color_yellow1{
+	background : #FFF7CD;     
+}                
+.color_yellow2{
+	background : #FFE16A;      
+}        
+.color_yellow3{
+	background : #FFC107;       
+}        
+.color_yellow4{
+	background : #B78103;       
+}        
+.color_yellow5{
+	background : #7A4F01;        
+}
+
+.color_green1{
+	background : #E9FCD4;       
+}                
+.color_green2{
+	background : #AAF27F;       
+}        
+.color_green3{
+	background : #54D62C;       
+}        
+.color_green4{
+	background : #229A16;       
+}        
+.color_green5{
+	background : #08660D;       
+}        
+      
+.color_red1{
+	background : #FFE7D9;       
+}                
+.color_red2{
+	background : #FFA48D;        
+}        
+.color_red3{
+	background : #FF4842;       
+}        
+.color_red4{
+	background : #B72136;      
+}        
+.color_red5{
+	background : #7A0C2E;       
+}   
+
+
+.color_gray100{
+	background : #F9FAFB;
+}        
+.color_gray200{
+	background : #F4F6F8;
+}
+.color_gray300{
+	background : #DFE3E8;
+}        
+.color_gray400{
+	background : #C4CDD5;
+}
+.color_gray500{
+	background : #919EAB;
+}        
+.color_gray600{
+	background : #637381;
+}
+.color_gray700{
+	background : #454F5B;
+}        
+.color_gray800{
+	background : #212B36;
+}        
+.color_gray900{
+	background : #161C24;
+} 
+      
+      
+/* color text picker */
+
+.colortext_blue1{
+	color : #D0F2FF;        
+}                
+.colortext_blue2{
+	color : #74CAFF;        
+}        
+.colortext_blue3{
+	color : #1890FF;        
+}        
+.colortext_blue4{
+	color : #0C53B7;        
+}        
+.colortext_blue5{
+	color : #04297A;        
+}
+
+.colortext_yellow1{
+	color : #FFF7CD;        
+}                
+.colortext_yellow2{
+	color : #FFE16A;        
+}        
+.colortext_yellow3{
+	color : #FFC107;        
+}        
+.colortext_yellow4{
+	color : #B78103;        
+}        
+.colortext_yellow5{
+	color : #7A4F01;        
+}
+
+.colortext_green1{
+	color : #E9FCD4;        
+}                
+.colortext_green2{
+	color : #AAF27F;        
+}        
+.colortext_green3{
+	color : #54D62C;        
+}        
+.colortext_green4{
+	color : #229A16;        
+}        
+.colortext_green5{
+	color : #08660D;        
+}        
+      
+.colortext_red1{
+	color : #FFE7D9;        
+}                
+.colortext_red2{
+	color : #FFA48D;        
+}        
+.colortext_red3{
+	color : #FF4842;        
+}        
+.colortext_red4{
+	color : #B72136;        
+}        
+.colortext_red5{
+	color : #7A0C2E;        
+}   
+
+
+.colortext_gray100{
+	color : #F9FAFB;
+}        
+.colortext_gray200{
+	color : #F4F6F8;
+}
+.colortext_gray300{
+	color : #DFE3E8;
+}        
+.colortext_gray400{
+	color : #C4CDD5;
+}
+.colortext_gray500{
+	color : #919EAB;
+}        
+.colortext_gray600{
+	color : #637381;
+}
+.colortext_gray700{
+	color : #454F5B;
+}        
+.colortext_gray800{
+	color : #212B36;
+}        
+.colortext_gray900{
+	color : #161C24;
+} 
