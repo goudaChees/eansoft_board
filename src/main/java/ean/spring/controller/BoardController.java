@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import ean.spring.dao.BoardDAO;
-import ean.spring.dao.FileDAO;
 import ean.spring.dto.BoardDTO;
 import ean.spring.dto.FileDTO;
 import ean.spring.dto.ReplyDTO;
+import ean.spring.dto.ReplyDepthDTO;
 import ean.spring.service.BoardService;
 import ean.spring.service.FileService;
 import ean.spring.service.ReplyService;
@@ -23,12 +22,6 @@ import ean.spring.service.ReplyService;
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
-	
-	@Autowired
-	private BoardDAO bdao;
-	
-	@Autowired
-	private FileDAO fdao;
 	
 	@Autowired
 	private HttpSession session;
@@ -108,7 +101,11 @@ public class BoardController {
 		String loginID = (String) session.getAttribute("loginID");
 		List<ReplyDTO> rdto = rServ.selectByParent(seq);
 		List<FileDTO> fdto = fServ.selectByParent(seq);
+		List<ReplyDepthDTO> rddto = rServ.selectByReplyParent(seq);
 		
+		
+		
+		model.addAttribute("rddto", rddto);
 		model.addAttribute("fdto", fdto);
 		model.addAttribute("bdto", bdto);
 		model.addAttribute("rdto", rdto);

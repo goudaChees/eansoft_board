@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ean.spring.dto.ReplyDTO;
+import ean.spring.dto.ReplyDepthDTO;
 
 @Repository
 public class ReplyDAO {
@@ -22,7 +23,20 @@ public class ReplyDAO {
 		return mybatis.delete("Reply.delete", parent_seq);
 	}
 	
+	public int update(ReplyDTO dto) {
+		return mybatis.update("Reply.update", dto);
+	}
+	
 	public List<ReplyDTO> selectByParent(int parent_seq){
 		return mybatis.selectList("Reply.selectByParent", parent_seq);
 	}
+	
+	public List<ReplyDepthDTO> selectByReplyParent(int board_seq){
+		return mybatis.selectList("Reply.selectByReplyParent", board_seq);
+	}
+	
+	public int reReplyInsert(ReplyDepthDTO rddto) {
+		return mybatis.insert("Reply.reReplyInsert", rddto);
+	}
+	
 }

@@ -220,7 +220,7 @@
                        		</div>
 						                            	
                             <form action="/reply/insert" method="post"> 	
-			                <div class="row m-3 mb-4" >		
+			                <div class="row m-3 mb-4 replybox" >		
 	                   			<div class='col-12 h3_3'>Comments</div>
 	                   			<hr>
 	                   			<input type="hidden" name="parent_seq" value='${bdto[0].seq }'>
@@ -235,22 +235,61 @@
            						
            						
 	                   			<div class="row m-auto mt-3" style="border-bottom: dashed 0.2rem gray; text-align:center;"></div>
+	                   			<div class="row m-auto mt-3" style="border-bottom: dashed 0.2rem gray; text-align:center;"></div>
 	                   		</div>
 	                   		</form>
-	                   		<div class="row m-3 mb-4">
-	                   			<c:forEach var='ii' items="${rdto }">
-	                   			<div class="col-2 body1" style="text-align:center;">${ii.writer}</div>
-	                   			<div class="col-6 body1">${ii.contents }</div>
-	                   			<div class="col-2 body2">${ii.write_date }</div>
-	                   			<div class="col-2 replyBtns">
+	                   		
+	                   		<c:forEach var='ii' items="${rdto }">
+	                   		<form action='/reply/update' method='post'>
+	                   		<div class="row m-3 mb-4 replys">
+	                   			<input class="seq" name="seq" type="hidden" value="${ii.seq}">
+	                   			<div class="col-2 body1 writer" style="text-align:center;">
+	                   				<input type="text" name="writer" value=" ${ii.writer}" style="border:none; width:100%;" readonly></div>
+	                   			<div class="col-5 body1 contents">
+	                   				<input type="text" name="contents" class="replyedit" value="${ii.contents }" style="border:none; width:100%;" readonly></div>
+	                   			<div class="col-2 body2 write_date">${ii.write_date }</div>
+	                   				<input type="hidden" name="write_date" value="${ii.write_date}">
+	                   				<input type="hidden" name="parent_seq" value="${bdto[0].seq}">
+	                   			<div class="col-3 replyBtns">
+	                   			<c:if test="${loginID == bdto[0].writer}">
+	                   				<button class="btn0_1 color_gray200 reReply" type="button" id='reReply'>답글</button>
+	                   			</c:if>
 	                   			<c:if test="${loginID == ii.writer }">
-	                   				<button class="btn0_1 color_yellow2" type="button" id='replyModify'>수정</button>
-									<button class="btn0_1 color_red2" type="button" id='replyDelete' >삭제</button>
+	                   				<button class="btn0_1 color_yellow2 replyModify" type="button" id='replyModify'>수정</button>
+									<button class="btn0_1 color_red2 replyDelete" type="button" id='replyDelete' >삭제</button>
 	                   			</c:if>
 	                   			</div>
-	                   			<!-- <hr> -->
+	                   			<c:forEach var="r" items="${rddto}">
+	                   			<c:if test="${ii.seq == r.parent_reply_seq}">
+	                   			<div class="row">
+	                   				<div class="row m-auto mb-2"></div>
+									<div class="col-1"><i class="bi bi-arrow-return-right"></i></div>
+									<div class="col-1 body2 mt-3"><b>${r.writer}</b></div>
+									<div class="col-6 body2"><input type="text" value="${r.contents}" style="border:none;" class="mt-1"></div>
+									<div class="col-2 caption">${r.write_date}</div>
+									<div class="col-2 reReplyBtns">
+									<c:if test="${loginID == r.writer}">
+										<button class="btn0_2 color_yellow2" type="button">수정</button>
+										<button class="btn0_2 color_red2" type="button">삭제</button>
+									</c:if>	
+									</div>
+									<div class="col-12"></div>
+									<div class="row m-auto mt-2" style="border-bottom: dashed 0.1rem lightgray; text-align:center;"></div>                 				
+	                   			</div>
+	                   			</c:if>
 	                   			</c:forEach>
+	                   			<form action='/reply/reReplyInsert' method='get'>
+	                   			<div class="row reReplysBox">
+	                   				<input type="hidden" name="board_seq" value='${bdto[0].seq }'>
+	                   				<input type="hidden" name="writer" value='${loginID }'>
+	                   				<input type="hidden" name="parent_reply_seq" value="${r.parent_reply_seq }">
+	                   			</div>
+	                   			</form>
 	                   		</div>
+	                   		
+	                   		<hr>
+	                   		</form>
+	                   		</c:forEach>
                         </div>
 	                </div>      	
           		</div>
@@ -278,6 +317,7 @@
 	$("#modify").on("click", ()=>{
 		$(".edit").removeAttr("readonly");
 		$(".edit").attr("border","solid 2px");
+		$("#contents").focus();
 		$("#modify").css("display", "none");
 		$("#delete").css("display", "none");
 		let ok = $("<button>");
@@ -319,6 +359,87 @@
 			$("#insertReply").removeAttr("disabled");
 		}
 	})
+	
+	$(document).on("click", ".replyModify", function(){
+		$(this).parent().siblings(".contents").children().removeAttr("readonly");
+		$(this).parent().siblings(".contents").children().attr("border","solid 1px gray");
+		$(this).parent().siblings(".contents").children().focus();
+		$(this).css("display", "none");
+		$(this).siblings(".replyDelete").css("display", "none");	
+		let ok = $("<button>");
+		ok.text("수정완료");
+		ok.attr("class","btn0_1 color_yellow2");
+		ok.attr("id", "replyModifyOk");
+		$("#replyModifyOk").attr("disabled");
+		ok.attr("type", "submit");
+		
+		let cancel = $("<button>");
+		cancel.text("취소");
+		cancel.attr("type", "button");
+		cancel.attr("class","btn0_1 color_gray400");
+		cancel.on("click", ()=>{
+			location.reload();
+		})
+		
+		$(this).parent(".replyBtns").append(ok);
+		$(this).parent(".replyBtns").append(cancel);
+
+/* 		let test = $(this).parent().siblings().val();
+		let test2 = $(this).parent().siblings('.writer').children().val();
+		let test3 = $(this).parent().siblings('.contents').children().val();
+		let seq = $(this).parent().siblings().val(); // 8 이게 해당값.
+		let seq2 = $(this).parent().siblings('input').val();
+		let test4 = $(this).parent().siblings('.writer').text();
+		let test5 = $(this).parent().siblings('.contents').text();
+		
+		console.log(test3); */
+	})
+	
+	$(document).on("click", ".replyDelete", function(){
+		/* let seq = $(this).parent().siblings().val(); // 8 이게 해당값.
+		*/
+		let del = confirm("정말 삭제하시겠습니까?");
+		let seq =  $(this).parent().siblings('input').val();
+		let parent_seq = $("#seq").val();
+		console.log(seq); 
+		console.log(parent_seq);
+		if(del){
+			location.href="/reply/delete?seq="+seq+"&parent_seq="+parent_seq
+		}else {
+			
+		}
+	})
+		
+		
+	$(document).on("click", ".reReply", function(){
+		$(this).css("display", "none");
+		$(this).siblings(".replyDelete").css("display", "none");
+		$(this).siblings(".replyModify").css("display", "none");
+		let cancel = $("<button>");
+		cancel.text("취소");
+		cancel.attr("type", "button");
+		cancel.attr("class","btn0_1 color_gray400");
+		cancel.on("click", ()=>{
+			location.reload();
+		})
+		$(this).parent(".replyBtns").append(cancel);
+		
+		let test = $(this).parent().siblings().val();
+		console.log(test);
+		//$(this).parent().parent().append("<div class='col-3 body2' style='text-align:right;'>답글</div><div class='col-6' ><input type='text'style='width:100%;'></div><div class='col-3'><button>insert</button></div>");
+		
+		$(this).parent().siblings('.reReplysBox').append("<div class='col-1'><i class='bi bi-arrow-return-right'></i></div>");
+		$(this).parent().siblings('.reReplysBox').append('<div class="col-2 body2 mt-3"><b>${loginID}</b></div>');
+		$(this).parent().siblings('.reReplysBox').append('<div class="col-6 body2 mt-1"><input type="text" name="contents" style="width:100%;""></div>');
+		$(this).parent().siblings('.reReplysBox').append('<div class="col-3"><button class="btn0_2 mt-3">insert</button></div>');
+		$(this).parent().siblings('.reReplysBox').append('<div class="col-12"></div>');
+		
+
+	})
+		
+	
+	
+	
 </script>
       
 </body>

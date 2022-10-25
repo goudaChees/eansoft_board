@@ -16,7 +16,23 @@
   		delete from reply where seq = #{value}
   	</delete>
   	
+  	<update id="update">
+  		update reply set contents = #{contents} where seq = #{seq}
+  	</update>
+  	
   	<select id="selectByParent" resultType="ean.spring.dto.ReplyDTO">
   		select * from reply where parent_seq = #{value} order by write_date
   	</select>
+  	
+  	<select id="selectByReplyParent" resultType="ean.spring.dto.ReplyDepthDTO">
+  		select * from replydepth where board_seq = #{value} order by write_date
+  	</select>
+  	
+  	
+  	<!-- reReply -->
+  	
+  	<insert id="reReplyInsert">
+  		insert into replydepth values(replydepth_seq.nextval, #{writer}, #{contents}, default, #{parent_reply_seq}, #{board_seq} )
+  	</insert>
+  	
   </mapper>
