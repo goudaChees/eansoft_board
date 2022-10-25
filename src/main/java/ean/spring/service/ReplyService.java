@@ -35,7 +35,11 @@ public class ReplyService {
 		return rdao.selectByReplyParent(board_seq);
 	}
 	
-	public void reReplyInsert(ReplyDepthDTO rddto) {
-		rdao.reReplyInsert(rddto);
+	public int reReplyInsert(ReplyDepthDTO rddto) {
+		return rdao.reReplyInsert(rddto);
+	}
+	
+	public void deleteByParent(int seq) {
+		rdao.deleteByParent(seq);
 	}
 }

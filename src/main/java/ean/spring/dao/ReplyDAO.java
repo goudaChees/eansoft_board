@@ -39,4 +39,7 @@ public class ReplyDAO {
 		return mybatis.insert("Reply.reReplyInsert", rddto);
 	}
 	
+	public int deleteByParent(int seq) {
+		return mybatis.delete("Reply.deleteByParent", seq);
+	}
 }

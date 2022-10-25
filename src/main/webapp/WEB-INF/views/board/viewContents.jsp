@@ -269,8 +269,8 @@
 									<div class="col-2 caption">${r.write_date}</div>
 									<div class="col-2 reReplyBtns">
 									<c:if test="${loginID == r.writer}">
-										<button class="btn0_2 color_yellow2" type="button">수정</button>
-										<button class="btn0_2 color_red2" type="button">삭제</button>
+										<button class="btn0_2 color_yellow2 reReplyModBtn" type="button">수정</button>
+										<button class="btn0_2 color_red2 reReplyDelBtn" type="button">삭제</button>
 									</c:if>	
 									</div>
 									<div class="col-12"></div>
@@ -278,18 +278,23 @@
 	                   			</div>
 	                   			</c:if>
 	                   			</c:forEach>
-	                   			<form action='/reply/reReplyInsert' method='get'>
-	                   			<div class="row reReplysBox">
-	                   				<input type="hidden" name="board_seq" value='${bdto[0].seq }'>
-	                   				<input type="hidden" name="writer" value='${loginID }'>
-	                   				<input type="hidden" name="parent_reply_seq" value="${r.parent_reply_seq }">
-	                   			</div>
-	                   			</form>
-	                   		</div>
 	                   		
+	                   	
+	                   	
+                   			
+                   			<div class="row reReplysBox">
+                   				<input type="hidden" name="board_seq" value='${bdto[0].seq }'>
+                   				<input type="hidden" name="writer" value='${loginID }'>
+                   				<input type="hidden" name="parent_reply_seq" value="${r.parent_reply_seq }">
+                   			</div>
+                   			
+                   		</div>	
 	                   		<hr>
 	                   		</form>
-	                   		</c:forEach>
+	                   	</c:forEach>
+	                   		
+	          
+	                   		
                         </div>
 	                </div>      	
           		</div>
@@ -426,17 +431,47 @@
 		
 		let test = $(this).parent().siblings().val();
 		console.log(test);
+		
+		let click = $("<button>");
+		click.text("insert");
+		click.attr("type", "button");
+		click.attr("class", "btn0_2 mt-3 reReplyInsert")
 		//$(this).parent().parent().append("<div class='col-3 body2' style='text-align:right;'>답글</div><div class='col-6' ><input type='text'style='width:100%;'></div><div class='col-3'><button>insert</button></div>");
 		
 		$(this).parent().siblings('.reReplysBox').append("<div class='col-1'><i class='bi bi-arrow-return-right'></i></div>");
 		$(this).parent().siblings('.reReplysBox').append('<div class="col-2 body2 mt-3"><b>${loginID}</b></div>');
-		$(this).parent().siblings('.reReplysBox').append('<div class="col-6 body2 mt-1"><input type="text" name="contents" style="width:100%;""></div>');
-		$(this).parent().siblings('.reReplysBox').append('<div class="col-3"><button class="btn0_2 mt-3">insert</button></div>');
+		$(this).parent().siblings('.reReplysBox').append('<div class="col-6 body2 mt-1"><input type="text" name="contents" style="width:100%;" class="reReplycontents"></div>');
+		$(this).parent().siblings('.reReplysBox').append('<div class="col-3 reReplySubmitBtn">');
+		$(this).parent().siblings('.reReplysBox').children('.reReplySubmitBtn').append(click);
 		$(this).parent().siblings('.reReplysBox').append('<div class="col-12"></div>');
 		
-
-	})
 		
+		let test2 = $(this).parent().siblings().children(".reReplycontents").val();
+		console.log(test2);
+		
+	
+		click.on("click", function(){
+			$.ajax({
+				url : "/reply/reReplyInsert",
+				data : {
+					
+					contents : $(".reReplycontents").val(),
+					parent_reply_seq : test,
+					board_seq : ${bdto[0].seq }
+				}
+			}).done(function(resp){
+					location.reload();
+				})
+			
+			
+		})
+ 			
+		
+		
+		
+	})
+	
+
 	
 	
 	

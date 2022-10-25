@@ -35,4 +35,10 @@
   		insert into replydepth values(replydepth_seq.nextval, #{writer}, #{contents}, default, #{parent_reply_seq}, #{board_seq} )
   	</insert>
   	
+  	<delete id="deleteByParent">
+  		delete from replydepth where parent_reply_seq = #{value}
+  	</delete>
+  	
+  	
+  	
   </mapper>

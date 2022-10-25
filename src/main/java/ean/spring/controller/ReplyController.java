@@ -1,10 +1,13 @@
 package ean.spring.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import ean.spring.dao.ReplyDAO;
 import ean.spring.dto.ReplyDTO;
 import ean.spring.dto.ReplyDepthDTO;
 import ean.spring.service.ReplyService;
@@ -14,7 +17,7 @@ import ean.spring.service.ReplyService;
 public class ReplyController {
 	
 	@Autowired
-	private ReplyDAO rdao;
+	private HttpSession session;
 	
 	@Autowired
 	private ReplyService rServ;
@@ -35,13 +38,25 @@ public class ReplyController {
 	@RequestMapping("delete")
 	public String delete(int seq, int parent_seq) {
 		rServ.delete(seq);
+		rServ.deleteByParent(seq);
 		return "redirect:/board/viewContents?seq="+parent_seq;
 	}
 	
-	@RequestMapping("reReplyInsert")
-	public String reReplyInsert(ReplyDepthDTO rddto) {
-		rServ.reReplyInsert(rddto);
-		return "redirect:/board/viewContents?seq="+rddto.getBoard_seq();
+	@ResponseBody
+	@RequestMapping(value="reReplyInsert", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public String reReplyInsert( String contents, int board_seq, int parent_reply_seq) {
+		 
+		String writer = (String) session.getAttribute("loginID");
+		System.out.println("writer: "+writer+"  Contents: "+contents + " Board_Seq:  "+board_seq);
+		
+		
+		ReplyDepthDTO rddto = new ReplyDepthDTO(0,writer, contents, null, parent_reply_seq, board_seq);
+		
+		int result = rServ.reReplyInsert(rddto);
+		
+		return String.valueOf(result);
 	}
+	
+	
 	
 }
