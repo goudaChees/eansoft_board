@@ -176,7 +176,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="title" id="title" placeholder="Input title" >
+											<input type="text" name="title" id="title" placeholder="Input title" maxlength="50" >
 										</div>
 									</div>
 									<div class="row">

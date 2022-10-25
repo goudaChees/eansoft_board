@@ -35,10 +35,16 @@
   		insert into replydepth values(replydepth_seq.nextval, #{writer}, #{contents}, default, #{parent_reply_seq}, #{board_seq} )
   	</insert>
   	
-  	<delete id="deleteByParent">
+  	<delete id="reReplyDeleteByParent">
   		delete from replydepth where parent_reply_seq = #{value}
   	</delete>
   	
+  	<update id="reReplyUpdate">
+  		update replydepth set contents = #{contents} where seq = #{seq} 
+  	</update>
   	
+  	<delete id="reReplyDeleteBySeq">
+  		delete from replydepth where seq = #{value}
+  	</delete>
   	
   </mapper>

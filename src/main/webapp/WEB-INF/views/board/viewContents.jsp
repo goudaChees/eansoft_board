@@ -163,7 +163,7 @@
             					
             					<div class="col-2 h3_3 m-auto">Title</div>
 			            		<div class="col-10 h3_3">
-			            		<input type='text' name='title' value='${i.title}' id='title' class='edit' id="titleInput" style="border:none; padding:0; margin:auto;" readonly> 
+			            		<input type='text' name='title' value='${i.title}' id='title' class='edit' id="titleInput" style="border:none; padding:0; margin:auto; width:100%; overflow-x:auto" readonly> 
 			            		</div>
 					            	<div class="row">	
 					            		<div class="col-5"></div>
@@ -186,8 +186,9 @@
 										
 									<div class="row mt-4" id="contentsBox">
 										<div class='col-2 h3_3 mt-2' style="padding:0;">Contents</div>
-										<div class='col-10 body1'>
-										<input type='text' name="contents" id="contents" class='edit' value='${i.contents}' id="contentsInput" style="border:none; padding:0; margin:auto;" readonly>
+										<div class='col-10'>
+										<textarea rows="" cols="" name="contents" id="contents" class='edit body1' id="contentsInput" style="border:none; padding:0; margin:auto; width:100%; height:100%;" readonly maxlength="1300">${i.contents}</textarea>
+										<%-- <input type='text' name="contents" id="contents" class='edit' value='${i.contents}' id="contentsInput" style="border:none; padding:0; margin:auto; width:100%;" readonly> --%>
 										</div>			
 									
 									</div>
@@ -227,7 +228,7 @@
 	                   			<div class="col-2 body1 mt-2" style="text-align:center;">${loginID }</div>
 	                   			<input type="hidden" id="replyWriter" name="writer" value="${loginID }">
 	                   			<div class="col-8">
-	                   				<input type="text" id="replyContents" name='contents' style="width:100%;">
+	                   				<input type="text" id="replyContents" name='contents' style="width:100%;" maxlength="100">
 	                   			</div>
 	                   			<div class="col-2">
 	                   				<input type="submit" class="btn1_0" id="insertReply" value="insert" disabled>
@@ -264,8 +265,9 @@
 	                   			<div class="row">
 	                   				<div class="row m-auto mb-2"></div>
 									<div class="col-1"><i class="bi bi-arrow-return-right"></i></div>
-									<div class="col-1 body2 mt-3"><b>${r.writer}</b></div>
-									<div class="col-6 body2"><input type="text" value="${r.contents}" style="border:none;" class="mt-1"></div>
+									
+									<div class="col-1 body2 mt-3"><input type="hidden" value="${r.seq}" class="rr_seq"><b>${r.writer}</b></div>
+									<div class="col-6 body2"><input type="text" value="${r.contents}" style="border:none;" class="mt-1 rr_contents" readonly></div>
 									<div class="col-2 caption">${r.write_date}</div>
 									<div class="col-2 reReplyBtns">
 									<c:if test="${loginID == r.writer}">
@@ -462,17 +464,73 @@
 			}).done(function(resp){
 					location.reload();
 				})
-			
-			
+	
 		})
- 			
-		
-		
-		
 	})
 	
-
 	
+	$(document).on("click", ".reReplyModBtn", function(){
+		$(this).parent().siblings().children(".rr_contents").removeAttr("readonly");
+		$(this).parent().siblings().children(".rr_contents").attr("border","solid 1px gray");
+		$(this).parent().siblings().children(".rr_contents").focus();
+		$(this).css("display", "none");
+		$(this).siblings(".reReplyDelBtn").css("display", "none");	
+		
+		let ok = $("<button>");
+		ok.text("확인");
+		ok.attr("class","btn0_2 color_yellow2");
+		ok.attr("id", "reReplyModifyOk");
+		$("#reReplyModifyOk").attr("disabled");
+		
+		let cancel = $("<button>");
+		cancel.text("취소");
+		cancel.attr("type", "button");
+		cancel.attr("class","btn0_2 color_gray400");
+		cancel.on("click", ()=>{
+			location.reload();
+		})
+		
+		$(this).parent(".reReplyBtns").append(ok);
+		$(this).parent(".reReplyBtns").append(cancel);
+		
+		let rr_seq = $(this).parent().siblings().children(".rr_seq").val();
+		let rr_contents = $(this).parent().siblings().children(".rr_contents").val();
+		
+		
+		
+		ok.on("click", ()=>{
+			$.ajax({
+				url : "/reply/reReplyUpdate",
+				data : {
+					seq : rr_seq,
+					contents : $(this).parent().siblings().children(".rr_contents").val(),
+					
+				}
+			}).done(function(resp){
+					location.reload();
+				})
+	
+			})
+			
+		})
+		
+	$(document).on("click", ".reReplyDelBtn", function(){
+		let rr_seq = $(this).parent().siblings().children(".rr_seq").val();
+		
+		let del = confirm("정말 삭제하시겠습니까?");
+		
+
+		if(del){
+			$.ajax({
+				url : "/reply/reReplyDeleteBySeq",
+				data : { seq : rr_seq}
+			}).done(function(resp){
+				location.reload();
+			})
+		}else{
+			
+		}		
+	})
 	
 	
 </script>

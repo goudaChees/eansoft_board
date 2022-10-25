@@ -38,7 +38,7 @@ public class ReplyController {
 	@RequestMapping("delete")
 	public String delete(int seq, int parent_seq) {
 		rServ.delete(seq);
-		rServ.deleteByParent(seq);
+		rServ.reReplyDeleteByParent(seq);
 		return "redirect:/board/viewContents?seq="+parent_seq;
 	}
 	
@@ -57,6 +57,22 @@ public class ReplyController {
 		return String.valueOf(result);
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="reReplyUpdate", method = RequestMethod.GET, produces= "application/json;charset=UTF-8")
+	public String reReplyUpdate(int seq, String contents) {
+		System.out.println("seq : "+seq+" contents : "+contents);
+		
+		int result = rServ.reReplyUpdate(seq, contents);
+		
+		return String.valueOf(result);
+	}
 	
+	@ResponseBody
+	@RequestMapping(value="reReplyDeleteBySeq", method = RequestMethod.GET, produces="application/json;charset=UTF-8")
+	public String reReplyDeleteBySeq(int seq) {
+		int result = rServ.reReplyDeleteBySeq(seq);
+		
+		return String.valueOf(result);
+	}
 	
 }

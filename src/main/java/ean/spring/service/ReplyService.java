@@ -39,7 +39,16 @@ public class ReplyService {
 		return rdao.reReplyInsert(rddto);
 	}
 	
-	public void deleteByParent(int seq) {
-		rdao.deleteByParent(seq);
+	public void reReplyDeleteByParent(int seq) {
+		rdao.reReplyDeleteByParent(seq);
 	}
+	
+	public int reReplyUpdate(int seq, String contents) {
+		return rdao.reReplyUpdate(seq, contents);
+	}
+	
+	public int reReplyDeleteBySeq(int seq) {
+		return rdao.reReplyDeleteBySeq(seq);
+	}
+	
 }

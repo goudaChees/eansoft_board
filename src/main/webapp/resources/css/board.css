@@ -139,10 +139,6 @@
 }
 
 .inputs {
-	
-    
-
-    
     
     height: 100%;
     
@@ -228,6 +224,21 @@ a {
 #insertReply:hover {
 	color : white;
 	background-color : black;
+}
+
+
+.ellipsis{
+	/* width : 35.5rem; */
+	white-space : nowrap;
+	overflow : hidden;
+	text-overflow : ellipsis;
+}
+
+.ellipsis2{
+	width : 20rem;
+	white-space : nowrap;
+	overflow : hidden;
+	text-overflow : ellipsis;
 }
 
 /* Font */

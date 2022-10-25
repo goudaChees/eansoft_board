@@ -1,6 +1,8 @@
 package ean.spring.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,21 @@ public class ReplyDAO {
 		return mybatis.insert("Reply.reReplyInsert", rddto);
 	}
 	
-	public int deleteByParent(int seq) {
-		return mybatis.delete("Reply.deleteByParent", seq);
+	public int reReplyDeleteByParent(int seq) {
+		return mybatis.delete("Reply.reReplyDeleteByParent", seq);
 	}
+	
+	public int reReplyUpdate(int seq, String contents) {
+		String r_seq = String.valueOf(seq);
+		Map<String, String> param = new HashMap<>();
+		param.put("seq", r_seq);
+		param.put("contents", contents);
+		return mybatis.update("Reply.reReplyUpdate", param);
+		
+	}
+	
+	public int reReplyDeleteBySeq(int seq) {
+		return mybatis.delete("Reply.reReplyDeleteBySeq", seq);
+	}
+	
 }

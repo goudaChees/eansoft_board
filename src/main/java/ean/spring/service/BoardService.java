@@ -35,6 +35,7 @@ public class BoardService {
 			if (!realPathFile.exists())realPathFile.mkdir();
 			
 			for(MultipartFile mf : file) {
+				if(mf.getSize() > 0) {
 				String ori_Name = mf.getOriginalFilename();
 				String sys_Name = UUID.randomUUID()+"_"+ori_Name;
 				try {
@@ -43,6 +44,12 @@ public class BoardService {
 					e.printStackTrace();
 				}
 				fdao.insert(new FileDTO(0, ori_Name, sys_Name, parent_seq));
+				
+				
+				}else {
+					
+				}
+				
 			}
 		}
 		
