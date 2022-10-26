@@ -56,7 +56,7 @@
                            <li class="nav-item"> <a id="Logout" class="nav-link logout" href="/member/logout"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
                                        
-                           <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+                           <li class="nav-item"> <a id="Admin" class="nav-link" href="/"
                                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
                         
                         </ul>
@@ -93,7 +93,7 @@
                            <li class="nav-item"> <a id="Logout" class="nav-link logout" href="/member/logout"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
                                        
-                           <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+                           <li class="nav-item"> <a id="Mypage" class="nav-link" href="/"
                                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
                         
                         </ul>
@@ -260,6 +260,17 @@
         </div>
     </section>
       
+      
+    <div class="row" id="footer" style="margin-top: 80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 h3 " style = "color: #637381; margin-top: 3.75rem;">(주)이안소프트</div>
+                    <div class="col-12 body2 " style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | IT업 신고번호 : 2022-서울성동-012345</div><br>
+                    <div class="col-12 body2 " style = "color: #637381;" >ITCT 지식산업센터 | eemoon23@gmail.com</div>
+
+                </div>
+            </div>
+        </div>  
 </div>
 
 <script>

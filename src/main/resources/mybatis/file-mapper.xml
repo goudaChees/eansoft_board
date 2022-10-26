@@ -10,7 +10,7 @@
   	</insert>
   	
   	<delete id="delete">
-  		delete from files where seq = #{value}
+  		delete from files where parent_seq = #{value}
   	</delete>
   	
   	<select id="selectByParent" resultType="ean.spring.dto.FileDTO">

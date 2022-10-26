@@ -19,7 +19,7 @@ public class FileDAO {
 	}
 	
 	public int delete(int parent_seq) {
-		return mybatis.insert("File.delete", parent_seq);
+		return mybatis.delete("File.delete", parent_seq);
 	}
 	
 	public List<FileDTO> selectByParent (int parent_seq) {
