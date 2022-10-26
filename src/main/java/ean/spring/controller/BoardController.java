@@ -40,22 +40,26 @@ public class BoardController {
 	public String list(Model model, int cpage, String value, String keyword, String category) {
 		List<BoardDTO> list = null;
 		String pageNavi = null;
+
 		
 		if (category != null && keyword != null) {
 			List<BoardDTO> searchList = bServ.selectBySearchPage(cpage, category, keyword);
 			String searchPageNavi = bServ.getPageBySearchNavi(cpage, category, keyword);
 			list = searchList;
 			pageNavi = searchPageNavi;
+			model.addAttribute("keyword", keyword);
+			model.addAttribute("category", category);
 			
 		}else {
 			List<BoardDTO> listAll = bServ.selectByPage(cpage);
-			System.out.println("keyword >> "+ keyword + "category >> "+category);
 			String pageNaviAll = bServ.getPageNavi(cpage);
 			
 			list = listAll;
 			pageNavi = pageNaviAll;
+
 		}
 		
+		model.addAttribute("cpage", cpage);
 		model.addAttribute("list", list);
 		model.addAttribute("navi", pageNavi);
 		

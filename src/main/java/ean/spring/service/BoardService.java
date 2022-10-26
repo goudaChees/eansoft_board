@@ -93,6 +93,7 @@ public class BoardService {
 	
 	public void delete(int seq) {
 		bdao.delete(seq);
+		fdao.delete(seq);
 	}
 	
 	

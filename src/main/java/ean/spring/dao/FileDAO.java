@@ -25,4 +25,6 @@ public class FileDAO {
 	public List<FileDTO> selectByParent (int parent_seq) {
 		return mybatis.selectList("File.selectByParent", parent_seq);
 	}
+	
+	
 }

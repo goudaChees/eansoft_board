@@ -146,6 +146,9 @@
       <div class="row" id="main_blank">
 	      <div class="container">
 	      빈칸
+	      <br><br><br><br><br><br><br><br>
+	      <h1>M A I N</h1>
+	      <br><br>
 	      </div>
       </div>
       

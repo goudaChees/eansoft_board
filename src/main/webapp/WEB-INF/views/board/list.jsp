@@ -160,7 +160,15 @@
                 	<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">  
  							<div class="row pt-4 p-4" style="text-align:left">
- 								<div class="col-4" id="checkbtns">
+ 								<div class="col-1">
+ 									<form id="excelDown" action="/excel/excelDownload" method="post">
+ 										<input type='hidden' id="excel_cpage" name='cpage' value='${cpage}'>
+ 										<input type='hidden' id="excel_category" name='category' value='${category}'>
+ 										<input type='hidden' id="excel_keyword" name='keyword' value='${keyword}'>
+ 										<button class="btn0_1 color_green2" onclick="excelDown()" style="margin:auto">EXCEL</button>
+ 									</form>
+ 								</div>
+ 								<div class="col-3" id="checkbtns">
  									<!-- <select class="body2 select0 color_gray100" name="type" id="type" style="height:3.0rem">
  										<option value='T'>종합 </option>
 										<option value='O'>일반 </option>
@@ -171,12 +179,12 @@
  								<div class="col-6" style="text-align:right">
                                	<form action="/board/list?cpage=1" method="get">
                                     <div class="searchBox">
-                                    	<select class="select2" name="category"  aria-label="Default select example">
+                                    	<select class="select2" id="category_ID" name="category"  aria-label="Default select example">
 	                               			<option value="writer">작성자</option>
 	                               			<option value="title">제목</option>
 	                               			<option value="contents">내용</option>
 	                               		</select>
-                                        <input type="text" class="searchInput select0"  name='keyword' placeholder="Search">
+                                        <input type="text" class="searchInput select0" id="keyword_ID" name='keyword' placeholder="Search">
                                         <input type='hidden' name='cpage' value='1'>
                                         <button type="submit" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
@@ -184,6 +192,7 @@
                                     </div>
                                 </form>
                             	</div>
+                            	
  								
  								<div class="col-2" style="align:right">
  									<div class="body2"><button id="write" class="btn0" style="height:3.0rem">Write</button></div>
@@ -258,9 +267,13 @@ $("#write").on("click", ()=>{
 	location.href = "/board/toWrite";
 })
 
-function SearchBtn(){
+function excelDown(){
+	/* $("#excel_keyword").val() = $("#keyword_ID").val();
+	$("#excel_category").val() = $("#category_ID").val(); */
 	
-}
+	let formObj = $("#excelDown");
+	formObj.submit();
+};
 
 
 /* 

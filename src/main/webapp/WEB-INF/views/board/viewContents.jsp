@@ -151,7 +151,7 @@
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8" id="boardMain">  <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 7rem">
-						<div class="col-12 h3_1 px-5" style="text-align:left"> Board </div>
+						<div class="col-12 h3_1 px-5" style="text-align:left"><img type="button" class="leftbutton" src="/images/leftbutton.png"> </div>
                 		<div class="col-12 body2 colortext_gray600 px-5" >  : Board Project  </div>
                 	</div>
                 	
@@ -321,6 +321,12 @@
 </div>
 
 <script>
+$(".leftbutton").on("click", function() {
+	window.history.back();
+	
+})
+
+
 	$("#modify").on("click", ()=>{
 		$(".edit").removeAttr("readonly");
 		$(".edit").attr("border","solid 2px");
