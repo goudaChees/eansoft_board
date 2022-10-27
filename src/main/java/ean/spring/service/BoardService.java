@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import ean.spring.dao.BoardDAO;
 import ean.spring.dao.FileDAO;
+import ean.spring.dao.ReplyDAO;
 import ean.spring.dto.BoardDTO;
 import ean.spring.dto.FileDTO;
 
@@ -22,6 +23,9 @@ public class BoardService {
 	
 	@Autowired
 	private FileDAO fdao;
+	
+	@Autowired
+	private ReplyDAO rdao;
 	
 	@Transactional
 	public void insert(BoardDTO bdto, String realPath, MultipartFile[] file) {
@@ -94,6 +98,8 @@ public class BoardService {
 	public void delete(int seq) {
 		bdao.delete(seq);
 		fdao.delete(seq);
+		rdao.deleteByParent(seq);
+		rdao.reReplyDeleteByBoard(seq);
 	}
 	
 	

@@ -29,6 +29,10 @@ public class ReplyDAO {
 		return mybatis.update("Reply.update", dto);
 	}
 	
+	public int deleteByParent(int parent_seq) {
+		return mybatis.delete("Reply.deleteByParent", parent_seq);
+	}
+	
 	public List<ReplyDTO> selectByParent(int parent_seq){
 		return mybatis.selectList("Reply.selectByParent", parent_seq);
 	}
@@ -56,6 +60,10 @@ public class ReplyDAO {
 	
 	public int reReplyDeleteBySeq(int seq) {
 		return mybatis.delete("Reply.reReplyDeleteBySeq", seq);
+	}
+	
+	public int reReplyDeleteByBoard(int seq) {
+		return mybatis.delete("Reply.reReplyDeleteByBoard", seq);
 	}
 	
 }

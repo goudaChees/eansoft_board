@@ -20,6 +20,10 @@
   		update reply set contents = #{contents} where seq = #{seq}
   	</update>
   	
+  	<delete id="deleteByParent">
+  		delete from reply where parent_seq = #{value}
+  	</delete>
+  	
   	<select id="selectByParent" resultType="ean.spring.dto.ReplyDTO">
   		select * from reply where parent_seq = #{value} order by write_date
   	</select>
@@ -45,6 +49,10 @@
   	
   	<delete id="reReplyDeleteBySeq">
   		delete from replydepth where seq = #{value}
+  	</delete>
+  	
+  	<delete id="reReplyDeleteByBoard">
+  		delete from replydepth where board_seq = #{value}
   	</delete>
   	
   </mapper>
