@@ -167,8 +167,12 @@
  										<input type='hidden' id="excel_keyword" name='keyword' value='${keyword}'>
  										<button class="btn0_1 color_green2" onclick="excelDown()" style="margin:auto">EXCEL</button>
  									</form>
+ 										
  								</div>
- 								<div class="col-3" id="checkbtns">
+ 								<div class="col-1">
+ 									<button class="btn0_1 color_blue2" onclick="toStatistics()">Statistics</button>
+ 								</div>
+ 								<div class="col-2" id="checkbtns">
  									<!-- <select class="body2 select0 color_gray100" name="type" id="type" style="height:3.0rem">
  										<option value='T'>종합 </option>
 										<option value='O'>일반 </option>
@@ -285,6 +289,10 @@ function excelDown(){
 	let formObj = $("#excelDown");
 	formObj.submit();
 };
+
+function toStatistics(){
+	location.href = "/board/toStatistics";
+}
 
 
 /* 

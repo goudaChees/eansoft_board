@@ -133,7 +133,10 @@ public class BoardController {
 		return "redirect:list?cpage=1";
 	}
 	
-	
+	@RequestMapping("toStatistics")
+	public String toStatistics() {
+		return "/board/statistics";
+	}
 	
 	
 	@ExceptionHandler
