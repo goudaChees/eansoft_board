@@ -3,10 +3,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.1.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -33,6 +36,19 @@
 	</beans:bean>	
 	
 	<context:component-scan base-package="ean.spring" />
+	
+	<context:component-scan base-package="ean.spring.scheduler"/>
+		<task:scheduler id="jobScheduler" pool-size="2"/>
+		<task:annotation-driven scheduler="jobScheduler"/>
+	
+
+	<!--
+	<task:scheduler id="scheduler" pool-size="2">
+		<task:scheduled-tasks scheduler="scheduler">
+		    <task:scheduled ref="TaskTestService" method="doJob" cron="0/4 * * * * ?">
+		</task:scheduled></task:scheduled-tasks>  
+	</task:scheduler>
+	 -->
 	<!-- 
 	<tx:annotation-driven></tx:annotation-driven>
 	

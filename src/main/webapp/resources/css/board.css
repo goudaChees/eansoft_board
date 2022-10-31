@@ -241,6 +241,10 @@ a {
 	text-overflow : ellipsis;
 }
 
+#myChart{
+	text-align : center;
+}
+
 /* Font */
 .h1 {
     padding: 0px;
