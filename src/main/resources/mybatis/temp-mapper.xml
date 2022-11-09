@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Temp">
+  
+  <insert id="insert">
+  	insert into joadb_users values(#{user_no}, #{id}, #{password}, #{name}, #{phone}, #{email})
+  </insert>
+  	
+  
+  </mapper>
